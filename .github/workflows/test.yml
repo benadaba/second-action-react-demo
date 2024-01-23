@@ -19,8 +19,8 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
-      - name: Access environment vals
-        run: echo "environment value is ${{ PORT }}"
+      # - name: Access environment vals
+      #   run: echo "environment value is ${{ PORT }}"
       - name: Access SECRET environment vals
         run: echo "environment value is ${{ MY_URL }}"
   
