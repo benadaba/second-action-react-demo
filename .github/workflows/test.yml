@@ -1,7 +1,13 @@
 name: Test Project
 on: push
+#global environment variable
+env:
+  MY_URL: http://test.com
 jobs:
   test:
+   #job specific env
+    env:
+      PORT: 8080
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -14,6 +20,10 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
+      - name: Access environment vals
+        run: |
+          echo "environment val 1 = $PORT"
+          echo "environment val 1 = ${{ PORT }} "
   
   build:
     needs: test
