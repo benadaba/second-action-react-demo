@@ -50,5 +50,7 @@ jobs:
           name: dist-files
       - name: check downloade artifacts
         run: ls
+      - name: access output
+        run: echo ${{ needs.build.outputs.script-file }}
       - name: Deploy 
         run: echo "Deploying ..."
