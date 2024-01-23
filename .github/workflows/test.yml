@@ -20,7 +20,7 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Access environment vals
-        run: echo envs ${{ PORT }}
+        run: echo "yes"
   
   build:
     needs: test
