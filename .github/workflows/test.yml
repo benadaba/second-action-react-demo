@@ -5,7 +5,6 @@ env:
   MY_URL: http://test.com
 jobs:
   test:
-   #job specific env
     env:
       PORT: 8080
     runs-on: ubuntu-latest
