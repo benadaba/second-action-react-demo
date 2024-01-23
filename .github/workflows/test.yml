@@ -2,7 +2,7 @@ name: Test Project
 on: push
 #global environment variable
 env:
-  MY_URL: http://test.com
+  MY_URL: ${{ secrets.MY_URL  }} #access the secrets context variable
 jobs:
   test:
     env:
@@ -20,7 +20,9 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Access environment vals
-        run: echo "yes"
+        run: echo "environment value is ${{ PORT }}"
+      - name: Access SECRET environment vals
+        run: echo "environment value is ${{ MY_URL }}"
   
   build:
     needs: test
