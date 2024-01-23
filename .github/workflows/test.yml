@@ -29,8 +29,8 @@ jobs:
       - name: Build Website
         run: npm run build 
       - name: Publish js 
-        id: publish
-        run: find dist/assets/*.js -type -f -executor echo '::set-output name=script-file::{}' ';'
+        id: publish #this id is given so that this step can be referenced from else where
+        run: find dist/assets/*.js -type f -execdir echo '{}' ';'
       - name: upload artifact
         uses: actions/upload-artifact@v3 
         with:
