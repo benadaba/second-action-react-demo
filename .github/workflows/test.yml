@@ -30,7 +30,7 @@ jobs:
         run: npm run build 
       - name: Publish js 
         id: publish
-        run: find dist/assets/*.js -type -f -executor echo 'script-file={}' ';'
+        run: find dist/assets/*.js -type -f -executor echo '::set-output name=script-file::{}' ';'
       - name: upload artifact
         uses: actions/upload-artifact@v3 
         with:
